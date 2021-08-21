@@ -19,35 +19,37 @@
 #define MAX_LIMIT 1000
 
 int main() {
-    char s[MAX_LIMIT];
-    int character_hash[26];
-    scanf("%s",s);
+    char string[MAX_LIMIT];
+    int character_hash[26]={0};
+    int pancount = 0;
     
-    int test = 1;
-    
-    printf("Length %d",strlen(s));
-    printf("%s", s);
-    
-    for(int i=0; i<strlen(s); i++) {
-        printf("%d\n", s[i]);
-        if(97<=s[i]<=122) {
-            character_hash[s[i]-97] = 1;
+    fgets(string, 1000, stdin);
+
+
+    for(int i=0; i<strlen(string); i++) {
+        if('a'<=string[i] && string[i]<='z')  {
+            character_hash[string[i]-'a'] += 1;
         }
-        if(65<=s[i]<=90) {
-            character_hash[s[i]-65] = 1;
+        else if('A'<=string[i] && string[i]<='Z') {
+            character_hash[string[i]-'A'] += 1;
         }
     }
     
-    for(int i=0;i<26; i++) {
-        printf("%d",character_hash[i] );
+    for(int i=0;i<26;i++){
         if(character_hash[i]==0) {
-            test = 0;
+            pancount=1;   
         }
     }
-    if(test==0) {
-        printf("Not Panagram");
+
+    if(pancount==0) {
+        printf("Pangram");
     }
-    else {
-        printf("Panagram");
+    else if(pancount==1) {
+        printf("Not Pangram\n");
+        for(int i=0;i<26;i++) {
+            if(character_hash[i]==0) {
+            printf("%c ", i+'a'); }
+        }
     }
+    
 }

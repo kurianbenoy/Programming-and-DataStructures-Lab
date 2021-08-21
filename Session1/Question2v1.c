@@ -1,5 +1,6 @@
 // Passed 3 testcases /8
 #include<stdio.h>
+#include<string.h>
 
 int main() {
     char hello[1000], reverse_hello[1000];
@@ -7,14 +8,9 @@ int main() {
     int pal = 0;
     scanf("%s", hello);
     
-    while(hello[count] != '\0') {
-        count ++;
-    }
-    
-    // printf("%d", count);
+    count = strlen(hello);
     
     for(int i=0; i<count; i++) {
-        // printf("%c%c", hello[i], hello[count-i-1]);
         if(hello[i]!=hello[count - i -1]) {
             pal = 1;
             break;
