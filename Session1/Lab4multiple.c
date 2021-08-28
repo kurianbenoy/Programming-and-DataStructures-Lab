@@ -20,7 +20,8 @@
 
 int main() {
     int number1, number2;
-    int prime[100], primegap[100], count= 0;
+    int prime[100], primegap[100], count= 0, c1=0;
+    int diff[1000], cab1[1000], cab2[1000];
     scanf("%d%d", &number1, &number2);
     
     if(number1<0) {
@@ -45,12 +46,21 @@ int main() {
     }
     
     for(int i=0;i<count - 1;i++) {
-        primegap[i] = prime[i+1] - prime[i];
+	for(int j=i+1; j<count; j++) {
+        diff[c1] = prime[j] - prime[i];
+        cab1[c1] = prime[i];
+        cab2[c1] = prime[j];
+        printf("nos :%d %d\n", prime[i], prime[j]);
+		printf("diff: %d \n", prime[j] - prime[i]);
+        c1++;
+	}
     }
     
-    for(int i=0;i<count-2; i++) {
-        if(primegap[i+1]==primegap[i]) {
-            printf("%d %d %d %d\n", prime[i], prime[i+1], prime[i+2], primegap[i]);
+    for(int i=0;i<c1; i++) {
+        for (int j=i+1; j<c1; j++) {
+            if(diff[i] == diff[j]) {
+                printf("%d %d %d\n", cab1[j], cab2[j], diff[j]);
+            }
         }
     }
 }
