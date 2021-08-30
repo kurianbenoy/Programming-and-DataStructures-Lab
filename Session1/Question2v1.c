@@ -4,14 +4,13 @@
 
 int main() {
     char hello[1000], reverse_hello[1000];
-    int count=0, begin=0, end;
-    int pal = 0;
-    scanf("%s", hello);
+    int leng, i, pal=0;
+    fgets(hello, 1000, stdin);
     
-    count = strlen(hello);
+    leng = strlen(hello);
     
-    for(int i=0; i<count; i++) {
-        if(hello[i]!=hello[count - i -1]) {
+    for(int i=0; i<leng/2; i++) {
+        if(hello[i]!=hello[leng - i -1]) {
             pal = 1;
             break;
         }
@@ -23,12 +22,16 @@ int main() {
     else{
         printf("Not Palindrome");
     }
-    end = count -1;
-    
-    for(begin=0;begin<count; begin++) {
-        reverse_hello[begin] = hello[end];
-        end --;
+    printf("\n%d", hello);
+    if(hello<0) {
+        printf("-");
+        for(int i=leng-1;i>0;i--) {
+            printf("%c", hello[i]);
+        }
     }
-    
-    printf("\n%s", reverse_hello);
+    else {
+        for(int i=leng-1;i>=0;i--) {
+            printf("%c", hello[i]);
+        }
+    }
 }
