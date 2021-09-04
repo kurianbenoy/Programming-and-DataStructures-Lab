@@ -44,23 +44,27 @@ int main() {
             count ++;
         }
     }
-    
-    for(int i=0;i<count - 1;i++) {
-	for(int j=i+1; j<count; j++) {
-        diff[c1] = prime[j] - prime[i];
-        cab1[c1] = prime[i];
-        cab2[c1] = prime[j];
-        printf("nos :%d %d\n", prime[i], prime[j]);
-		printf("diff: %d \n", prime[j] - prime[i]);
-        c1++;
-	}
+
+    for(int i=0;i<count;i++) {
+        printf("%d ", prime[i]);
     }
     
-    for(int i=0;i<c1; i++) {
-        for (int j=i+1; j<c1; j++) {
-            if(diff[i] == diff[j]) {
-                printf("%d %d %d\n", cab1[j], cab2[j], diff[j]);
-            }
-        }
-    }
+    // for(int i=0;i<count - 1;i++) {
+	// for(int j=i+1; j<count; j++) {
+    //     diff[c1] = prime[j] - prime[i];
+    //     cab1[c1] = prime[i];
+    //     cab2[c1] = prime[j];
+    //     printf("nos :%d %d\n", prime[i], prime[j]);
+	// 	printf("diff: %d \n", prime[j] - prime[i]);
+    //     c1++;
+	// }
+    // }
+    
+    // for(int i=0;i<c1; i++) {
+    //     for (int j=i+1; j<c1; j++) {
+    //         if(diff[i] == diff[j]) {
+    //             printf("%d %d %d\n", cab1[j], cab2[j], diff[j]);
+    //         }
+    //     }
+    // }
 }

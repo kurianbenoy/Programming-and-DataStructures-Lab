@@ -51,16 +51,8 @@ void insert_front(int data_value)
 	header->link = temp;
 }
 
-void insert_any()
+void insert_any(int key, int data_value)
 {
-    printf("Enter insert");
-	int data_value, key;
-
-	// printf("\nEnter data of the node: ");
-    scanf("%d", &key);
-	scanf("%d", &data_value);
-	// printf("\nEnter data of the node after which new node is to be inserted: ");
-
 	temp = (struct node *) malloc(sizeof(struct node));
 
 	//Traverse till key is found or end of the linked list is reached.
