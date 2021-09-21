@@ -1,59 +1,66 @@
+/*Create a Doubly linked list and Traverse it in forward and backward direction.
+
+Sample Input/Output
+
+Input:
+    17 42 16 18 39 -999
+Output
+    17 42 16 18 39 
+    39 18 16 42 17   
+
+Author: Kurian Benoy*/
 #include<stdio.h>
 #include<stdlib.h>
 
 struct Node {
     int data;
-    struct Node * prev;
-    struct Node * next;
+    struct Node *prev;
+    struct Node *next;
 };
 
-void append(struct Node** head_ref, int data) {
-    struct Node *newnode = (struct Node*) malloc(sizeof(struct Node));
-    struct Node *last = *head_ref;
-    
-    newnode->data = data;
-    newnode->next = NULL;
-    
-    if(*head_ref == NULL) {
-         newnode->prev = NULL;
-         *head_ref = newnode;
-         return;
-    }
-    
-    while(last->next != NULL) {
-        last  = last->next;
-    }
-    
-    last->next = newnode;
-    newnode->prev = last;
-}
-
 void display(struct Node *temp) {
+    struct Node * last;
     while(temp != NULL) {
         printf("%d ", temp->data);
+        last = temp;
+        temp = temp->next;
+    }
+    
+    printf("\n");
+    
+    while(last != NULL) {
+        printf("%d ", last->data);
+        last = last->prev;
     }
 }
 
 int main() {
-    struct Node * list;
-    int data;
-
-    scanf("%d", &data);
+    struct Node *head = NULL, *ptr, *prevptr;
+    int data, flag=0;
     
-    while(data != -999) {
-        append(&list, data);
+    scanf("%d", &data);
+    if(data==-999){
+        printf("Underflow");
+        flag = 1;
+    }
+    while(data != -999)  {
+        ptr = (struct Node *)malloc(sizeof(struct Node));
+        ptr->data = data;
+        
+        if(head == NULL) {
+            head = ptr;
+            head->prev = NULL;
+        }
+        
+        else {
+            prevptr->next = ptr;
+            ptr->prev = prevptr;
+        }
+        prevptr = ptr;
         scanf("%d", &data);
     }
-
-    printf("%d", list->data);
-
-    while (list  != NULL) {
-        printf("%d", list->data);
-        list = list->next;
-    }
-
-    while(list->next = NULL) {
-        printf("%d", list->data);
-        list = list->prev;
+    
+    if(flag==0) {
+    display(head);
     }
 }
