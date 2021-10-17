@@ -1,3 +1,15 @@
+/*Create a linked list and Delete an element before a particular element. If there are more than one similar elements in the linked list, delete the element before the last occurrence.
+
+Sample Input/Output
+
+Input:
+    17 42 16 18 39 -999
+    16
+Output
+    17 16 18 39    
+Author: Kurian Benoy
+    */
+
 // #include<stdio.h>
 // #include<stdlib.h>
 
